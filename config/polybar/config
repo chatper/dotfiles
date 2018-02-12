@@ -1,0 +1,305 @@
+[colors]
+background = #282C34
+foreground = #ABB2BF
+foreground-alt= #528BFF
+black = #000000
+red = #E06C75
+green = #98C379
+orange = #D19A66
+blue = #61AEEE
+magenta = #C678DD
+cyan = #56B6C2
+lightgray = #ABB2BF
+darkgray = #5C6370
+white = #FFFFFF
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/mybar]
+monitor = LVDS-1
+
+width = 100%
+height = 20
+
+font-0 = Monaco:size=10:weight=bold
+font-1 = FontAwesome:size=9
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+tray-position = right
+tray-maxsize = 20
+
+line-size = 2 2 
+
+modules-left = xwindow
+modules-center =
+modules-right = keyboard volume gmail wireless-network wired-network date
+
+[module/xwindow]
+type = internal/xwindow
+
+label = > %title% 
+label-maxlen = 80
+
+format-foreground = ${colors.lightgray}
+format-background = ${colors.background}
+format-margin = 2
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout>
+format-foreground = ${colors.lightgray}
+format-prefix= " "
+format-underline = ${colors.lightgray}
+format-margin = 2
+
+[module/date]
+type = internal/date
+interval = 60
+
+date = "%d-%m-%Y"
+date-alt = " %Y-%m-%d"
+time = %H:%M
+
+format-prefix = " "
+format-prefix-foreground = ${colors.orange}
+format-foreground = ${colors.orange}
+format-underline = ${colors.orange}
+label = %date%  %time%
+format-margin = 2
+
+[module/volume]
+type = internal/volume
+master-mixer = Master
+
+format-volume-foreground = ${colors.lightgray}
+format-volume = <label-volume>
+format-volume-prefix = " "
+format-volume-underline = ${colors.lightgray}
+label-muted = [muted]
+label-muted-foreground = ${colors.red}
+label-muted-font = 1
+format-muted-underline = ${colors.red}
+format-margin = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+
+index-sort = true
+label-focused = "%index%: %icon%"
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.foreground-alt}
+label-focused-padding = 1
+
+label-unfocused = "%index%: %icon%" 
+label-unfocused-padding = 1
+
+label-urgent = "%index%: %icon%"
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+label-visible = "%index%: %icon%"
+label-visible-padding = 1
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3; 
+ws-icon-3 = 4;
+
+[module/wireless-network]
+type = internal/network
+interface = wlp4s0b1
+
+format-connected-prefix = " "
+format-disconnected-prefix = " "
+format-connected-underline = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.foreground-alt}
+format-disconnected-underline = ${colors.red}
+format-disconnected-prefix-foreground = ${colors.red}
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = %essid% | %local_ip% 
+label-connected-foreground = ${colors.foreground-alt}
+
+label-disconnected = [not connected]
+label-disconnected-foreground = ${colors.red}
+
+interval = 2.0
+format-connected-margin = 2
+format-disconnected-margin = 2
+
+[module/wired-network]
+type = internal/network
+interface = eno1
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground = ${colors.red}
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-underline = ${colors.foreground-alt}
+format-disconnected-underline = ${colors.red}
+
+label-connected = %local_ip% 
+label-connected-foreground = ${colors.foreground-alt}
+
+label-disconnected = [not plugged]
+label-disconnected-foreground = ${colors.red}
+
+interval = 2.0
+format-connected-margin = 2
+format-disconnected-margin = 2
+
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/gmail.sh
+interval = 60
+format-margin = 2
+format = <label>
+format-prefix = " " 
+format-prefix-foreground = ${colors.lightgray}
+format-underline = ${colors.lightgray}
+click-left = xdg-open https://mail.google.com/mail & disown
+
+[bar/bottom]
+dpi = 72
+bottom = true
+width = 100%
+height = 20
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 0
+underline-color = #00f
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = hack:pixelsize=12;2
+font-1 = unifont:size=10;2
+font-2 = siji:pixelsize=10;3
+font-3 = FontAwesome:pixelsize=14;2
+
+modules-left = i3 
+modules-center = wifispeeddown wifispeedup networkspeeddown networkspeedup
+modules-right = filesystem-slash temperature cpu memory
+
+[module/filesystem-slash]
+type = internal/fs
+interval = 60
+mount-0 = /
+label-mounted = %percentage_used%%
+format-mounted = <label-mounted>
+format-mounted-prefix = 
+format-mounted-prefix-padding = 2
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label> <bar-load>
+format-prefix =  
+format-prefix-foreground = ${colors.magenta}
+label =
+bar-load-width = 30
+bar-load-foreground-0 = ${colors.magenta}
+bar-load-foreground-1 = ${colors.magenta}
+bar-load-foreground-2 = ${colors.magenta}
+bar-load-foreground-3 = ${colors.magenta}
+bar-load-foreground-4 = ${colors.magenta}
+bar-load-foreground-5 = ${colors.magenta}
+bar-load-foreground-6 = ${colors.magenta}
+bar-load-foreground-7 = ${colors.magenta}
+bar-load-fill = 
+bar-load-empty = 
+bar-load-indicator =
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = <label> <bar-used>
+format-prefix =   
+format-prefix-foreground = ${colors.foreground-alt}
+label =
+bar-used-width = 30
+bar-used-foreground-0 = ${colors.foreground-alt}
+bar-used-foreground-1 = ${colors.foreground-alt}
+bar-used-foreground-2 = ${colors.foreground-alt}
+bar-used-foreground-3 = ${colors.foreground-alt} 
+bar-used-foreground-4 = ${colors.foreground-alt} 
+bar-used-fill = 
+bar-used-empty = 
+bar-used-indicator =
+
+[module/temperature]
+type = internal/temperature
+
+interval = 2.0
+thermal-zone = 0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+warn-temperature = 80
+
+format = <label>
+format-foreground = ${colors.green}
+format-warn = <label-warn>
+format-prefix = ""
+format-warn-prefix = ""
+format-underline = ${colors.green}
+format-prefix-padding = 2
+format-warn-prefix-padding = 2
+
+[module/networkspeedup]
+type = internal/network
+interface = eno1     
+label-connected = "%upspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #5b
+interval = 2.0
+
+[module/networkspeeddown]
+type = internal/network
+interface = eno1
+label-connected = "%downspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #5b
+interval = 2.0
+
+[module/wifispeedup]
+type = internal/network
+interface = wlp4s0b1
+label-connected = "%upspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #5b
+interval = 2.0
+
+[module/wifispeeddown]
+type = internal/network
+interface = wlp4s0b1
+label-connected = "%downspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #5b 
+interval = 2.0
