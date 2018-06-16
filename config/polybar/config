@@ -5,13 +5,21 @@ foreground-alt= #528BFF
 black = #000000
 red = #E06C75
 green = #98C379
-orange = #D19A66
+lightgreen = #A3BE8C
+orange = #f59335
+lightorange = #D19A66
+purple = #81a1c1
 blue = #61AEEE
+pink = #FEC7CD
 magenta = #C678DD
 cyan = #56B6C2
 lightgray = #ABB2BF
 darkgray = #5C6370
 white = #FFFFFF
+
+[settings]
+format-margin = 2
+format-padding = 2
 
 [global/wm]
 margin-top = 0
@@ -19,146 +27,125 @@ margin-bottom = 0
 
 [bar/mybar]
 monitor = LVDS-1
-
 width = 100%
-height = 20
-
+height = 18
 font-0 = Monaco:size=10:weight=bold
 font-1 = FontAwesome:size=9
-
 background = ${colors.background}
 foreground = ${colors.foreground}
-
+underline-size = 0
 tray-position = right
-tray-maxsize = 20
-
-line-size = 2 2 
-
+tray-maxsize = 18
 modules-left = xwindow
 modules-center =
-modules-right = keyboard volume gmail wireless-network wired-network date
+modules-right = keyboard gmail volume wireless-network wired-network date
 
 [module/xwindow]
 type = internal/xwindow
-
 label = > %title% 
 label-maxlen = 80
-
 format-foreground = ${colors.lightgray}
 format-background = ${colors.background}
-format-margin = 2
 
 [module/keyboard]
 type = internal/xkeyboard
-
 format = <label-layout>
-format-foreground = ${colors.lightgray}
+format-foreground = ${colors.black}
 format-prefix= " "
-format-underline = ${colors.lightgray}
-format-margin = 2
+format-background = ${colors.lightgreen}
+format-prefix-foreground = ${colors.black}
 
 [module/date]
 type = internal/date
 interval = 60
-
 date = "%d-%m-%Y"
 date-alt = " %Y-%m-%d"
 time = %H:%M
-
+format-background = ${colors.orange}
 format-prefix = " "
-format-prefix-foreground = ${colors.orange}
-format-foreground = ${colors.orange}
-format-underline = ${colors.orange}
+format-prefix-foreground = ${colors.black}
+format-foreground = ${colors.black}
 label = %date%  %time%
-format-margin = 2
 
 [module/volume]
 type = internal/volume
 master-mixer = Master
-
-format-volume-foreground = ${colors.lightgray}
+format-volume-background = ${colors.pink}
+format-volume-foreground = ${colors.black}
 format-volume = <label-volume>
 format-volume-prefix = " "
-format-volume-underline = ${colors.lightgray}
+format-volume-prefix-background = ${colors.pink}
+format-volume-prefix-foreground = ${colors.black}
 label-muted = [muted]
-label-muted-foreground = ${colors.red}
+label-muted-foreground = ${colors.black}
 label-muted-font = 1
-format-muted-underline = ${colors.red}
-format-margin = 2
+format-muted-prefix = " "
+format-muted-background = ${colors.pink}
+format-muted-foreground = ${colors.black}
+format-muted-prefix-background = ${colors.pink}
+format-muted-prefix-foreground = ${colors.black}
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-
+format-margin = 0
+format-padding = 0 
 index-sort = true
-label-focused = "%index%: %icon%"
+label-focused = "%icon%"
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.foreground-alt}
-label-focused-padding = 1
-
-label-unfocused = "%index%: %icon%" 
-label-unfocused-padding = 1
-
-label-urgent = "%index%: %icon%"
+label-focused-padding = 2
+label-unfocused = "%icon%" 
+label-unfocused-padding = 2
 label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.red}
-label-urgent-padding = 1
-
-label-visible = "%index%: %icon%"
-label-visible-padding = 1
-
+label-urgent-padding = 2
+label-visible = "%icon%"
+label-visible-padding = 2
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3; 
 ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
 
 [module/wireless-network]
 type = internal/network
 interface = wlp4s0b1
-
 format-connected-prefix = " "
+format-connected-prefix-background = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.black}
 format-disconnected-prefix = " "
-format-connected-underline = ${colors.foreground-alt}
-format-connected-prefix-foreground = ${colors.foreground-alt}
-format-disconnected-underline = ${colors.red}
-format-disconnected-prefix-foreground = ${colors.red}
-
+format-disconnected-prefix-background = ${colors.red}
+format-disconnected-prefix-foreground = ${colors.black}
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-
+format-connected-background = ${colors.foreground-alt}
+format-connected-foreground = ${colors.black}
+format-disconnected-background = ${colors.red}
+format-disconnected-foreground = ${colors.black}
 label-connected = %essid% | %local_ip% 
-label-connected-foreground = ${colors.foreground-alt}
-
-label-disconnected = [not connected]
-label-disconnected-foreground = ${colors.red}
-
+label-disconnected = not connected
 interval = 2.0
-format-connected-margin = 2
-format-disconnected-margin = 2
 
 [module/wired-network]
 type = internal/network
 interface = eno1
-
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-background = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.black}
 format-disconnected-prefix = " "
-format-disconnected-prefix-foreground = ${colors.red}
-
+format-disconnected-prefix-background = ${colors.red}
+format-disconnected-prefix-foreground = ${colors.black}
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-format-connected-underline = ${colors.foreground-alt}
-format-disconnected-underline = ${colors.red}
-
+format-connected-background = ${colors.foreground-alt}
+format-connected-foreground = ${colors.black}
+format-disconnected-background = ${colors.red}
+format-disconnected-foreground = ${colors.black}
 label-connected = %local_ip% 
-label-connected-foreground = ${colors.foreground-alt}
-
-label-disconnected = [not plugged]
-label-disconnected-foreground = ${colors.red}
-
+label-disconnected = not plugged
 interval = 2.0
-format-connected-margin = 2
-format-disconnected-margin = 2
 
 [module/gmail]
 type = custom/script
@@ -167,40 +154,33 @@ interval = 60
 format-margin = 2
 format = <label>
 format-prefix = " " 
-format-prefix-foreground = ${colors.lightgray}
-format-underline = ${colors.lightgray}
+format-prefix-foreground = ${colors.black}
+format-prefix-background = ${colors.cyan}
+format-foreground = ${colors.black}
+format-background = ${colors.cyan}
 click-left = xdg-open https://mail.google.com/mail & disown
 
 [bar/bottom]
-dpi = 72
+monitor = LVDS-1
+dpi = 80
 bottom = true
 width = 100%
 height = 20
 offset-x = 0
 offset-y = 0
-
 background = ${colors.background}
 foreground = ${colors.foreground}
-
 overline-size = 0
 overline-color = #f00
 underline-size = 0
 underline-color = #00f
-
 border-bottom-size = 0
 border-bottom-color = ${colors.background}
-
 spacing = 1
-padding-left = 2
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 1
-
 font-0 = hack:pixelsize=12;2
 font-1 = unifont:size=10;2
 font-2 = siji:pixelsize=10;3
 font-3 = FontAwesome:pixelsize=14;2
-
 modules-left = i3 
 modules-center = wifispeeddown wifispeedup networkspeeddown networkspeedup
 modules-right = filesystem-slash temperature cpu memory
@@ -212,6 +192,8 @@ mount-0 = /
 label-mounted = %percentage_used%%
 format-mounted = <label-mounted>
 format-mounted-prefix = 
+format-mounted-prefix-foreground = ${colors.lightorange}
+format-mounted-foreground = ${colors.lightorange}
 format-mounted-prefix-padding = 2
 
 [module/cpu]
@@ -253,18 +235,15 @@ bar-used-indicator =
 
 [module/temperature]
 type = internal/temperature
-
 interval = 2.0
 thermal-zone = 0
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 warn-temperature = 80
-
 format = <label>
 format-foreground = ${colors.green}
 format-warn = <label-warn>
 format-prefix = ""
 format-warn-prefix = ""
-format-underline = ${colors.green}
 format-prefix-padding = 2
 format-warn-prefix-padding = 2
 
