@@ -80,7 +80,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -140,6 +140,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #criteria
+
 assign [class="Firefox"] 2
 assign [class="Chromium"] 2
 assign [class="spotify"] 4
@@ -149,13 +150,18 @@ for_window [class="Chromium"] focus
 for_window [class="Pinentry"] floating enable
 for_window [class="SpeedCrunch"] floating enable
 
+#Mutliscreen configuration
+workspace 1 output LVDS-1
+workspace 2 output HDMI-1
+
 #Custom shortcuts
-bindsym Mod1+f exec --no-startup-id firefox
-bindsym Mod1+c exec --no-startup-id chromium
-bindsym Mod1+a exec --no-startup-id atom
-bindsym Mod1+y exec --no-startup-id spotify
+bindsym $mod+Control+f exec --no-startup-id firefox
+bindsym $mod+Control+c exec --no-startup-id chromium
+bindsym $mod+Control+a exec --no-startup-id atom
+bindsym $mod+Control+y exec --no-startup-id spotify
+bindsym $mod+Control+o exec --no-startup-id oni
+bindsym $mod+Control+l exec --no-startup-id i3lock -n -t -i /home/peris/Downloads/md.png
 bindsym Mod1+Tab focus right
-bindsym Mod1+l exec --no-startup-id i3lock -n -i /home/peris/Downloads/md.png
 
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
@@ -164,14 +170,15 @@ bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
+focus_follows_mouse no
 new_window none
 hide_edge_borders both
 
 #Startups
-exec --no-startup-id i3lock -n -i /home/peris/Downloads/md.png
+exec --no-startup-id betterlockscreen -l
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id compton -bc
+exec --no-startup-id compton -bcC 
 exec --no-startup-id setxkbmap -layout us,gr option grp:alt_shift_toggle
-exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id terminator
 

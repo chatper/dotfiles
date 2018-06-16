@@ -43,5 +43,6 @@ export EDITOR="/usr/bin/vim"
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 
 udiskie --no-notify &
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 bash ~/.fehbg &
 exec i3
