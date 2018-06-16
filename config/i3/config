@@ -160,7 +160,7 @@ bindsym $mod+Control+c exec --no-startup-id chromium
 bindsym $mod+Control+a exec --no-startup-id atom
 bindsym $mod+Control+y exec --no-startup-id spotify
 bindsym $mod+Control+o exec --no-startup-id oni
-bindsym $mod+Control+l exec --no-startup-id i3lock -n -t -i /home/peris/Downloads/md.png
+bindsym $mod+Control+l exec --no-startup-id betterlockscreen -l
 bindsym Mod1+Tab focus right
 
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
