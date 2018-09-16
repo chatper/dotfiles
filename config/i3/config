@@ -157,10 +157,9 @@ workspace 2 output HDMI-1
 #Custom shortcuts
 bindsym $mod+Control+f exec --no-startup-id firefox
 bindsym $mod+Control+c exec --no-startup-id chromium
-bindsym $mod+Control+a exec --no-startup-id atom
 bindsym $mod+Control+y exec --no-startup-id spotify
 bindsym $mod+Control+o exec --no-startup-id oni
-bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/i3lock-multimonitor/lock -i ~/Downloads/md.png
+bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/i3lock-multimonitor/lock -i ~/.config/feh/md.png
 bindsym Mod1+Tab focus right
 
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
@@ -180,5 +179,5 @@ exec --no-startup-id ~/.config/i3/i3lock-multimonitor/lock -i ~/Downloads/md.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id compton -bcC 
 exec --no-startup-id setxkbmap -layout us,gr option grp:alt_shift_toggle
+exec --no-startup-id bash ~/.config/feh/fehbg.sh 
 exec --no-startup-id terminator
-
