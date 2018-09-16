@@ -174,7 +174,7 @@ new_window none
 hide_edge_borders both
 
 #Startups
-exec --no-startup-id ~/.config/i3/i3lock-multimonitor/lock -i ~/Downloads/md.png
+exec --no-startup-id ~/.config/i3/i3lock-multimonitor/lock -i ~/.config/feh/md.png
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id compton -bcC 
