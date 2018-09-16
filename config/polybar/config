@@ -132,7 +132,7 @@ interval = 2.0
 
 [module/wired-network]
 type = internal/network
-interface = ${interfaces.wifi}
+interface = ${interfaces.ethernet}
 format-connected-foreground = ${colors.sec}
 format-disconnected-foreground = ${colors.red}
 label-connected =   %local_ip% 
