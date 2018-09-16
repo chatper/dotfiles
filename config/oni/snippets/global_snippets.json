@@ -1,0 +1,96 @@
+{
+    "Let": {
+        "prefix": "lt",
+        "body": ["let ${1:name} = ${2:value}"],
+        "description": "Variable declaration"
+    },
+    "Destructuring": {
+        "prefix": "dl",
+        "body": ["let {${1:name}} = ${2:value}"],
+        "description": "Destructuring"
+    },
+    "Destructuring_Const": {
+        "prefix": "dc",
+        "body": ["const {${1:name}} = ${2:value}"],
+        "description": "Destructuring const"
+    },
+    "Ternary": {
+        "prefix": "ter",
+        "body": ["${1:condition} ? ${2:expression} : ${3:expression}"],
+        "description": "Ternary operator"
+    },
+    "For_Loop": {
+        "prefix": "for",
+        "body": ["for (const ${2:element} of ${1:array}) {", "\t$0", "}"],
+        "description": "For Loop"
+    },
+    "Function": {
+        "prefix": "fn",
+        "body": ["const ${1:name} = ${2:args} => ${3:body}"],
+        "description": "Function declaration"
+    },
+    "List_Map": {
+        "prefix": "map",
+        "body": ["${1:list}.map( ${2:x} => ${0} )"],
+        "description": "Map a function on every element of a list"
+    },
+    "List_Reduce": {
+        "prefix": "red",
+        "body": [
+            "${1:list}.reduce((${2:acc}, ${3:x}) => {",
+            "\t${0}",
+            "}, ${4:initial})"
+        ],
+        "description": "Reduce a list to an object/list"
+    },
+    "Lodash_Reduce": {
+        "prefix": "lred",
+        "body": [
+            "reduce((${1:acc}, ${2:x}) => {",
+            "\t${0}",
+            "}, ${3:initial}, ${4:list})"
+        ],
+        "description": "Reduce a list to an object/list"
+    },
+    "Lodash_Map": {
+        "prefix": "lmap",
+        "body": ["map( ${1:x} => ${0}), ${2:list} )"],
+        "description":
+            "Map a function on every element of a list the lodash/fp way"
+    },
+    "Require": {
+        "prefix": "rq",
+        "body": ["const ${1:name} = require('${2:module}')"],
+        "description": "Require modules"
+    },
+    "Require_Lodash/fp": {
+        "prefix": "rql",
+        "body": ["const {${1:name}} = require('lodash/fp')"],
+        "description": "Require lodash modules"
+    },
+    "Future_Fork": {
+        "prefix": "fol",
+        "body": ["${1:future}.fork(${2:console.error}, ${3:console.log})"],
+        "description": "Fork fluture"
+    },
+    "Require_Moment": {
+        "prefix": "rqm",
+        "body": ["const moment = require('moment')"],
+        "description": "Require lodash modules"
+    },
+    "Export": {
+        "prefix": "xp",
+        "body": ["module.exports = ${1:name}"],
+        "description": "Export modules"
+    },
+    "Timeout": {
+        "prefix": "sti",
+        "body": ["setTimeout(() => {", "\t${0}", "}, ${1:delay})"],
+        "description": "Set timeout"
+    },
+    "Interval": {
+        "prefix": "sin",
+        "body": ["setInterval(() => {", "\t${0}", "}, ${1:interval})"],
+        "description": "Set interval"
+    }
+}
