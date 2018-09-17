@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Install basic packages
+bash requirements
+
 # Notify-OSD server
 echo 'Setting up notify-OSD service'
 sudo cp org.freedesktop.Notifications.service /usr/share/dbus-1/services/
