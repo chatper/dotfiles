@@ -1,0 +1,3 @@
+rofi.ssh-client:                     ssh
+rofi.terminal:                       terminator
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"

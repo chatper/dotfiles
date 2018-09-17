@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Required packages
-sudo pacman -Syu xorg xorg-xinit pulseaudio pulseaudio-alsa pavucontrol udiskie terminator git firefox i3-wm i3lock-color compton feh vim notify-osd ifplugd pass lxappearance imagemagick
+sudo pacman -Syu xorg xorg-xinit pulseaudio pulseaudio-alsa pavucontrol udiskie terminator git firefox i3-wm i3lock-color compton feh vim notify-osd ifplugd pass lxappearance imagemagick rofi
 
 # Yay
 git clone https://aur.archlinux.org/yay.git
