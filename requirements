@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# Required packages
+sudo pacman -Syu xorg xorg-xinit pulseaudio pulseaudio-alsa pavucontrol udiskie terminator git firefox i3-wm i3lock-color compton feh vim notify-osd ifplugd pass lxappearance imagemagick
+
+# Yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+
+# AUR packages
+yay -Syu oni polybar ttf-font-awesome spotify adapta-gtk-theme gtk-engine-murrine
