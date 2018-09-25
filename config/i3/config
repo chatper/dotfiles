@@ -35,8 +35,8 @@ bindsym $mod+Return exec terminator
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# start rofi 
+bindsym $mod+d exec --no-startup-id "rofi -modi ssh,drun -show drun"
 
 # change focus
 bindsym $mod+h focus left
@@ -159,7 +159,8 @@ bindsym $mod+Control+f exec --no-startup-id firefox
 bindsym $mod+Control+c exec --no-startup-id chromium
 bindsym $mod+Control+y exec --no-startup-id spotify
 bindsym $mod+Control+o exec --no-startup-id oni
-bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/i3lock-multimonitor/lock -i ~/.config/feh/md.png
+bindsym $mod+Control+l exec --no-startup-id "~/.config/i3/i3lock-multimonitor/lock -i ~/.config/feh/md.png"
+bindsym $mod+Control+s exec --no-startup-id "rofi -show ssh"
 bindsym Mod1+Tab focus right
 
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
